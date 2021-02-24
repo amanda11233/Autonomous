@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="#D3D3D3"
+        android:layout_weight="0"
+
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Connected"
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:id="@+id/connecttxt"/>
+            <ProgressBar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:id="@+id/progressbar"
+
+                />
+
+        </LinearLayout>
+
+        <me.ibrahimsn.lib.Speedometer
+            android:id="@+id/speedometer"
+
+            android:layout_width="280dp"
+            android:layout_height="300dp"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            app:maxSpeed="100"
+            app:borderSize="8dp"
+            app:metricText="km/h"
+            app:borderColor="#402c47"
+            app:fillColor="#d83a78"
+            app:textColor="#000"
+            />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal"
+            android:layout_marginTop="-60dp"
+            android:layout_below="@+id/speedometer"
+            >
+            <!--0 percent -->
+            <eo.view.batterymeter.BatteryMeterView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:rotation="90"
+                android:id="@+id/batteryview"
+                app:batteryMeterChargeLevel="0"
+                app:batteryMeterChargingColor="#4caf50"
+                app:batteryMeterColor="#0277bd"
+                app:batteryMeterCriticalChargeLevel="15"
+                app:batteryMeterCriticalColor="#d84315"
+                app:batteryMeterIndicatorColor="@android:color/transparent"
+                app:batteryMeterIsCharging="true"
+                app:batteryMeterTheme="rounded"
+                app:batteryMeterUnknownColor="#e0e0e0" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:text="50%"
+                android:id="@+id/chargeText"
+                android:layout_centerHorizontal="true"
+                />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+
+        <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MapsFragment" />
+
+
+    </LinearLayout>
+</LinearLayout>
